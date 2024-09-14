@@ -1,0 +1,51 @@
+Topic: Django Signals
+
+    question1 is a the program answering all question from the assignment.
+
+        Ans1-By default, Django signals are executed synchronously. When a signal is sent, the receivers (signal handlers) are executed immediately within the same thread as the code that emitted the signal. This means the sender waits for all the connected signal handlers to finish execution before continuing.
+
+        Ans2-By observing that both the main function and the signal handler print the same thread name (MainThread), we can conclusively say that Django signals run in the same thread as the caller by default.
+        
+        Ans3-This proves that Django signals run in the same database transaction as the caller by default.
+
+    Read these instructions to run the program:
+
+        For question1
+        1- Run these command in the console 
+            python manage.py shell
+            >>> from myapp.tests import create_employee1
+            >>> create_employee1()
+        2- The output is something like this:
+                Signal received for Employee: Rahul Dahiya
+                # (5 seconds delay due to time.sleep)
+                Signal handler for John Doe completed after 5 seconds.
+                Employee instance saved.
+
+        For question 2
+        1- Run these command in the console 
+            python manage.py shell
+            >>> from myapp.tests import create_employee2
+            >>> create_employee2()
+        2- The output is something like this:
+                Main function is running in thread: MainThread
+                Signal received for Employee: AccuKnox
+                Signal handler is running in thread: MainThread
+                Employee instance saved.
+
+        For question 3
+        1- Run these command in the console 
+            python manage.py shell
+            >>> from myapp.tests import create_employee_with_error
+            >>> create_employee_with_error()
+        2- The output is something like this:
+                Employee John Doe created with status 'Active'
+                Signal: Employee John Doe's status changed to 'Processed'
+                Error occurred: Intentional error to test rollback
+                Employee exists after rollback? False
+
+    
+Topic: Custom Classes in Python
+
+    Python program Rectangle.py is the solution.
+
+    It is a simple python prgram just run "python Rectangle.py" to run the program.
